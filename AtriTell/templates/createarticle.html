@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="new-text">
-        <form action="AtriTell/article" method="POST" id="new-article-form">
-            <h2><input name="text" type="text" value="Title" maxlength="50" class="title"></h2>
+        <form action="/" method="POST" id="new-article-form">{% csrf_token %}
+            <h2><input name="title" type="text" value="Title" maxlength="50" class="title"></h2>
             <textarea name="text" maxlength="7500">My new article</textarea>
         </form>
         <p>
