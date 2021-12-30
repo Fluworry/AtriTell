@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/main.css">
-    <link rel="stylesheet" href="static/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/font-awesome.min.css">
     <title>AtriTell</title>
 </head>
 <body>
     <div class="new-text">
         <form action="/" method="POST" id="new-article-form">{% csrf_token %}
-            <h2><input name="title" type="text" value="Title" maxlength="50" class="title"></h2>
-            <textarea name="text" maxlength="7500">My new article</textarea>
+            <h2><input name="title" type="text" value="{{ title }}" maxlength="50" class="title"></h2>
+            <textarea name="text" maxlength="7500">{{ body }}</textarea>
         </form>
         <p>
             <button form="new-article-form" type="submit">Save</button>
