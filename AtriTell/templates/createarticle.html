@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="static/main.css">
+    <link rel="stylesheet" href="static/fontawesome/css/font-awesome.min.css">
     <title>AtriTell</title>
 </head>
 <body>
     <div class="new-text">
-        <form action="/article" method="POST" id="new-article-form">
-            <textarea name="text">My new article</textarea>
-            <p><input type="submit"></p>
+        <form action="AtriTell/article" method="POST" id="new-article-form">
+            <h2><input type="text" value="Title" maxlength="50" class="title"></h2>
+            <textarea name="text" maxlength="7500">My new article</textarea>
         </form>
+        <p>
+            <button form="new-article-form" type="submit">Save</button>
+            <button form="new-article-form" type="submit" name="share">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                Share
+            </button>
+        </p>
     </div>
 </body>
 </html>
