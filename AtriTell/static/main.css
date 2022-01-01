@@ -12,14 +12,20 @@ body {
 
 .new-text textarea {
     padding-bottom: 55%;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     width: 100%;
     outline: none;
     overflow: hidden;
     resize: none;
-    border-style: none;
+    border-style: solid;
+    border-width: 3px;
+    border-top-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-top-right-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+    border-color: #e7a4b6;
     font-size: 1.3em;
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
 }
@@ -35,24 +41,30 @@ body {
     resize: none;
     border-style: none;
     text-decoration: underline;
+    text-decoration-color: #e7a4b6;
     text-underline-offset: 4px;
     font-size: 1.3em;
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
 }
 
-.new-text p button {
+.menu-buttons {
+    margin-left: 10%;
+    margin-top: 9px;
+    float: left;
+}
+.menu-buttons button {
     border-color: black;
     border-style: solid;
     border-radius: 2em;
+    background-color: #f5cfd9;
     cursor: pointer;
     width: 115px;
     height: 40px;
-    float: left;
     display: block;
     padding-left: 10px;
     padding-right: 10px;
     margin-right: 2%;
-    margin-bottom: 100px;
+    margin-bottom: 25px;
     font-size: 1.3em;
     letter-spacing: 0.1em;
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
