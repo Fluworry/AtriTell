@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path('', views.note_create),
-    path('<str:note_url>/', views.note_get)
+    path('<str:note_url>/', views.note_get_or_save)
 ]

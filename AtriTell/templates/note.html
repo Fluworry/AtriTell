@@ -19,7 +19,7 @@
     </div>
     
     <div class="new-text">
-        <form action="/" method="POST" id="new-note-form">{% csrf_token %}
+        <form action="" method="POST" id="new-note-form">{% csrf_token %}
             <h2><input name="title" type="text" value="{{ title }}" maxlength="50" class="title"></h2>
             <textarea name="text" maxlength="7500">{{ body }}</textarea>
         </form>

@@ -69,3 +69,7 @@ body {
     letter-spacing: 0.1em;
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
 }
+
+::selection {
+    background-color: #fcd8e2;
+}
