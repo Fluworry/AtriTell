@@ -3,6 +3,20 @@ body {
     height: 100%;
 }
 
+header {
+    padding-bottom: 30px;
+}
+
+header .header-buttons {
+    float: right;
+    padding-top: 5px;
+    margin-right: 20px;
+}
+
+header .header-buttons a {
+    padding-left: 20px;
+}
+
 .new-text {
     margin-left: auto;
     margin-right: auto;
@@ -52,7 +66,8 @@ body {
     margin-top: 9px;
     float: left;
 }
-.menu-buttons button {
+
+button {
     border-color: black;
     border-style: solid;
     border-radius: 2em;
