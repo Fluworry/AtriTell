@@ -1,7 +1,29 @@
 from django.shortcuts import HttpResponse, get_object_or_404, render, redirect
 from django.views.decorators.http import require_GET, require_POST
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+
 from .models import Note
 
+
+def account_register(request):
+    user_email = request.POST.get('email')
+    user_name = request.POST.get('username')
+    user_pass = request.POST.get('pass')
+
+    user = User.objects.create_user(user_name, user_email, user_pass)
+    user.save()
+    
+def account_auth(request):
+    user_name = request.POST.get('username')
+    user_pass = request.POST.get('pass')
+
+    user = authenticate(username=user_name, password=user_pass)
+
+    if user is not None:
+        pass
+    else:
+        pass
 
 def note_create(request):
     if request.method == 'GET':
