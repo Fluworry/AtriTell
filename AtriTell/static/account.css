@@ -1,0 +1,34 @@
+.signin {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+.signin form input {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: block;
+    border-style: solid;
+    border-color: #e7a4b6;
+    border-width: 3px;
+    font-size: 1.3em;
+    font-family: Helvetica, sans-serif;
+}
+
+.user-data {
+    outline: none;
+    height: 20px;
+    border-radius: 1em;
+    padding: 8px;
+    background-color: #f8f4f5;
+}
+
+.signin-btn {
+    border-radius: 1.5em;
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #f5cfd9;
+    color: #6e5e6d;
+}

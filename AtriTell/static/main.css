@@ -9,12 +9,30 @@ header {
 
 header .header-buttons {
     float: right;
-    padding-top: 5px;
-    margin-right: 20px;
+    margin-right: 60px;
+    margin-top: 45px;
 }
 
 header .header-buttons a {
-    padding-left: 20px;
+    height: 50px;
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    color: inherit;
+    font-size: 1.3em;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 1em;
+    margin-left: 15px;
+    padding: 6px 18px 6px 18px;
+    font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
+}
+
+header .header-buttons .auth-btn {
+    background-color: #e2e6f1;
+}
+
+header .header-buttons .reg-btn {
+    background-color: #eee0ec;
 }
 
 .new-text {
