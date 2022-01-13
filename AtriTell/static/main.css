@@ -39,11 +39,10 @@ header .header-buttons .reg-btn {
     margin-left: auto;
     margin-right: auto;
     width: 60%;
-    position: relative;
 }
 
 .new-text textarea {
-    padding-bottom: 55%;
+    padding-bottom: 500px;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -62,11 +61,15 @@ header .header-buttons .reg-btn {
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
 }
 
+#new-note-form {
+    margin-top: 120px;
+}
+
 .new-text input {
-    padding-bottom: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     width: 100%;
     outline: none;
     overflow: hidden;
@@ -79,10 +82,16 @@ header .header-buttons .reg-btn {
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
 }
 
+.new-text input h2 {
+    display: block;
+}
+
 .menu-buttons {
-    margin-left: 10%;
-    margin-top: 9px;
+    width: 120px;
     float: left;
+    margin-left: 10px;
+    margin-bottom: 200px;
+    margin-top: 150px;
 }
 
 button {
@@ -105,4 +114,16 @@ button {
 
 ::selection {
     background-color: #fcd8e2;
+}
+
+@media screen and (min-width: 1200px) {
+    .menu-buttons {
+        margin-left: 110px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .menu-buttons {
+        width: 30px;
+    }
 }
