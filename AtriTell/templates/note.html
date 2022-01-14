@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="/static/main.css">
     <link rel="stylesheet" href="/static/fontawesome/css/font-awesome.min.css">
     <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico" %}">
@@ -28,8 +29,18 @@
     <div class="new-text">
         <form action="" method="POST" id="new-note-form">{% csrf_token %}
             <h2><input name="title" type="text" value="{{ title }}" maxlength="50" class="title"></h2>
-            <textarea name="text" maxlength="7500">{{ body }}</textarea>
+            <textarea name="text">{{ body }}</textarea>
         </form>
+
+        <script>
+            const textarea = document.querySelector("textarea");
+            textarea.addEventListener("keyup", e => {
+                let scHeight = e.target.scrollHeight;
+                textarea.style.height = `${scHeight}px`;
+            });
+        </script>
+
     </div>
+
 </body>
 </html>
