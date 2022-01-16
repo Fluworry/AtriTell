@@ -34,10 +34,17 @@
 
         <script>
             const textarea = document.querySelector("textarea");
+
+            function updateTextareaHeight(textarea) {
+                let scHeight = textarea.scrollHeight;
+                textarea.style.height = `${scHeight}px`;
+            }
+
+            updateTextareaHeight(textarea);
+
             textarea.addEventListener("keyup", e => {
                 textarea.style.height = "auto";
-                let scHeight = e.target.scrollHeight;
-                textarea.style.height = `${scHeight}px`;
+                updateTextareaHeight(textarea);
             });
         </script>
 
