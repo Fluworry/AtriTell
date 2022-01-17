@@ -6,6 +6,10 @@ from django.contrib.auth import authenticate
 from .models import Note
 
 
+def index(request):
+    return render(request, 'homepage.html')
+
+
 def account_register(request):
     if request.method == 'GET':
         return render(request, 'signup.html')
@@ -28,9 +32,13 @@ def account_auth(request):
         user = authenticate(username=user_name, password=user_pass)
 
         if user is not None:
-            pass
+            return redirect('/auth')
         else:
-            pass
+            return redirect('/')
+
+
+def account_settings(request):
+    pass
 
 
 def note_create(request):
