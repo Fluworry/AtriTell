@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse, get_object_or_404, render, redirect
 from django.views.decorators.http import require_GET, require_POST
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 
 from .models import Note
 
@@ -12,7 +12,10 @@ def index(request):
 
 def account_register(request):
     if request.method == 'GET':
-        return render(request, 'register.html')
+        if not request.user.is_authenticated:
+            return render(request, 'register.html', {'user': request.user})
+        else:
+            return redirect('/')
     else:
         user_email = request.POST.get('email')
         user_name = request.POST.get('username')
@@ -25,17 +28,26 @@ def account_register(request):
     
 def account_auth(request):
     if request.method == 'GET':
-        return render(request, 'signin.html')
+        if not request.user.is_authenticated:
+            return render(request, 'signin.html')
+        else:
+            return redirect('/')
     else:
         user_name = request.POST.get('username')
         user_pass = request.POST.get('pass')
 
-        user = authenticate(username=user_name, password=user_pass)
+        user = authenticate(request, username=user_name, password=user_pass)
 
         if user is not None:
+            login(request, user)
             return redirect('/')
         else:
             return redirect('/auth')
+
+
+def account_logout(request):
+    logout(request)
+    return redirect('/')
 
 
 def account_settings(request):

@@ -13,8 +13,13 @@
 <body>
     <header class="header-menu">
         <div class="header-buttons">
-            <a href="/register" class="reg-btn">Register</a>
-            <a href="/auth" class="auth-btn">Sign in</a>
+                {% if user.is_authenticated %}
+                    <a href="/logout" class="logout-btn">Log out</a>
+                    <a href="/account" class="account-btn">{{ user }}</a>
+                {% else %}
+                    <a href="/register" class="reg-btn">Register</a>
+                    <a href="/auth" class="auth-btn">Sign in</a>
+                {% endif %}
         </div>
     </header>
 
