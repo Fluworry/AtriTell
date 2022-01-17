@@ -12,7 +12,7 @@ def index(request):
 
 def account_register(request):
     if request.method == 'GET':
-        return render(request, 'signup.html')
+        return render(request, 'register.html')
     else:
         user_email = request.POST.get('email')
         user_name = request.POST.get('username')
@@ -20,6 +20,7 @@ def account_register(request):
 
         user = User.objects.create_user(user_name, user_email, user_pass)
         user.save()
+        return redirect('/')
     
     
 def account_auth(request):
@@ -32,9 +33,9 @@ def account_auth(request):
         user = authenticate(username=user_name, password=user_pass)
 
         if user is not None:
-            return redirect('/auth')
-        else:
             return redirect('/')
+        else:
+            return redirect('/auth')
 
 
 def account_settings(request):

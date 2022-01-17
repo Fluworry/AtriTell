@@ -11,10 +11,11 @@
 </head>
 <body>
     <div class="auth">
-        <form action="/auth" method="POST">{% csrf_token %}
+        <form action="/register" method="POST">{% csrf_token %}
             <input name="username" type="text" placeholder="Username" maxlength="50" class="user-data">
+            <input name="email" type="text" placeholder="Email" maxlength="50" class="user-data">
             <input name="pass" type="password" placeholder="Password" maxlength="50" class="user-data">
-            <input type="submit" value="Sign in" class="auth-btn" >
+            <input type="submit" value="Register" class="auth-btn">
         </form>
     </div>
 </body>
