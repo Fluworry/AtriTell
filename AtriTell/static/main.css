@@ -27,11 +27,11 @@ header .header-buttons a {
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
 }
 
-header .header-buttons .auth-btn {
+header .header-buttons .auth-btn, .logout-btn {
     background-color: #e2e6f1;
 }
 
-header .header-buttons .reg-btn {
+header .header-buttons .reg-btn, .account-btn {
     background-color: #eee0ec;
 }
 

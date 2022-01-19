@@ -55,22 +55,27 @@ def account_settings(request):
 
 
 def note_create(request):
+    if not request.user.is_authenticated:
+        return redirect('/auth')
+
     if request.method == 'GET':
         print(request)
         return render(request, 'note.html', {'title': 'Title', 'body': 'My new note'})
     else:
         note_title = request.POST.get('title')
         note_text = request.POST.get('text')
-        note = Note.objects.create(title=note_title, body=note_text)
-        return redirect('/' + str(note.random_url_id))
+        note = Note.objects.create(title=note_title, body=note_text, author=request.user)
+        return redirect(f"/{request.user}/{str(note.random_url_id)}")
 
 
-def note_get_or_save(request, note_url):
+def note_get_or_save(request, note_url, user_name):
     if request.method == 'GET':
-        note = get_object_or_404(Note, random_url_id=note_url)
+        note = get_object_or_404(Note, author=user_name, random_url_id=note_url)
         return render(request, 'note.html', {'title': note.title, 'body': note.body})
-    else:
+    elif request.user.is_authenticated:
         note_title = request.POST.get('title')
         note_text = request.POST.get('text')
-        Note.objects.filter(random_url_id=note_url).update(title=note_title, body=note_text)
-        return redirect('/' + str(note_url))
+        Note.objects.filter(author=request.user, random_url_id=note_url).update(title=note_title, body=note_text)
+        return redirect(f"/{request.user}/{note_url}")
+    else:
+        return redirect('/')

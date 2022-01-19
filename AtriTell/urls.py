@@ -9,5 +9,5 @@ urlpatterns = [
     path('register', views.account_register),
     path('logout/', views.account_logout),
     path('account', views.account_settings),
-    path('<str:note_url>/', views.note_get_or_save)
+    path('<str:user_name>/<str:note_url>/', views.note_get_or_save)
 ]
