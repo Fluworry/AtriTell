@@ -48,8 +48,9 @@
             updateTextareaHeight(textarea);
 
             textarea.addEventListener("keyup", e => {
-                textarea.style.height = "auto";
-                updateTextareaHeight(textarea);
+                if (e.key == 'Enter') {
+                    updateTextareaHeight(textarea);
+                }
             });
         </script>
 
