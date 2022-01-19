@@ -72,7 +72,7 @@ def note_get_or_save(request, note_url, user_name):
     if request.method == 'GET':
         note = get_object_or_404(Note, author=user_name, random_url_id=note_url)
         return render(request, 'note.html', {'title': note.title, 'body': note.body})
-    elif request.user.is_authenticated:
+    elif request.user.username == user_name:
         note_title = request.POST.get('title')
         note_text = request.POST.get('text')
         Note.objects.filter(author=request.user, random_url_id=note_url).update(title=note_title, body=note_text)
