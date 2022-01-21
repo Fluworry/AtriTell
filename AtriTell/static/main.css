@@ -3,17 +3,31 @@ body {
     height: 100%;
 }
 
-header {
-    padding-bottom: 30px;
+.header {
+    margin-top: 20px;
 }
 
-header .header-buttons {
+.logo-btn {
+    padding: 0px 18px 0px 18px;
+}
+
+.logo-btn a {
+    display: block;
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: rgb(141, 98, 161);
+    text-underline-offset: 4px;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+.account-buttons {
     float: right;
     margin-right: 60px;
-    margin-top: 45px;
+    margin-top: 5px;
 }
 
-header .header-buttons a {
+.account-buttons a {
     height: 50px;
     text-decoration: none;
     letter-spacing: 0.4px;
@@ -27,11 +41,11 @@ header .header-buttons a {
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
 }
 
-header .header-buttons .auth-btn, .logout-btn {
+.account-buttons .auth-btn, .logout-btn {
     background-color: #e2e6f1;
 }
 
-header .header-buttons .reg-btn, .account-btn {
+.account-buttons .reg-btn, .account-btn {
     background-color: #eee0ec;
 }
 

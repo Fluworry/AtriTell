@@ -11,17 +11,20 @@
     <title>AtriTell</title>
 </head>
 <body>
-    <header class="header-menu">
-        <h2>AtriTell</h2>
-            <div class="header-buttons">
-                {% if user.is_authenticated %}
-                    <a href="/logout" class="logout-btn">Log out</a>
-                    <a href="/account" class="account-btn">{{ user }}</a>
-                {% else %}
-                    <a href="/register" class="reg-btn">Register</a>
-                    <a href="/auth" class="auth-btn">Sign in</a>
-                {% endif %}
-            </div>
-    </header>
+    <div class="header">
+        <div class="account-buttons">
+            {% if user.is_authenticated %}
+                <a href="/logout" class="logout-btn">Log out</a>
+                <a href="/account" class="account-btn">{{ user }}</a>
+            {% else %}
+                <a href="/register" class="reg-btn">Register</a>
+                <a href="/auth" class="auth-btn">Sign in</a>
+            {% endif %}
+        </div>
+
+        <div class="logo-btn">
+            <a href="/">AtriTell</a>
+        </div>
+    </div>
 </body>
 </html>
