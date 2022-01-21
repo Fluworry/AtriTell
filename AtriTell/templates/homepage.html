@@ -22,9 +22,38 @@
             {% endif %}
         </div>
 
-        <div class="logo-btn">
+        <div class="navigation-buttons">
+            <i class="fas fa-bars" id="open-nav-btn"></i>
             <a href="/">AtriTell</a>
         </div>
     </div>
+
+    <div id="nav-menu">
+        <a href="#" id="close-nav-btn">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">Explore</a>
+        <a href="#">My notes</a>
+    </div>
+    
+    <script>
+        const openNavButton = document.querySelector('#open-nav-btn');
+        const closeNavButton = document.querySelector('#close-nav-btn');
+
+        function openNavMenu() {
+            document.getElementById("nav-menu").style.width = "120px";
+        }
+
+        function closeNavMenu() {
+            document.getElementById("nav-menu").style.width = "0px";
+        }
+
+        openNavButton.addEventListener('click', event => {
+            openNavMenu();
+        });
+
+        closeNavButton.addEventListener('click', event => {
+            closeNavMenu();
+        });
+    </script>
 </body>
 </html>
