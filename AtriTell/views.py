@@ -7,7 +7,8 @@ from .models import Note
 
 
 def index(request):
-    return render(request, 'homepage.html')
+    notes = Note.objects.all()
+    return render(request, 'homepage.html', {'posts': notes})
 
 
 def account_register(request):
