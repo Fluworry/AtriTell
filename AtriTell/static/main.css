@@ -10,7 +10,7 @@ body {
 #nav-menu {
     height: 100%;
     width: 0px;
-    background-color: rgb(206, 173, 201);
+    background-color: rgb(199, 174, 188);
     position: fixed;
     z-index: 1;
     top: 0;
@@ -24,15 +24,24 @@ body {
     padding: 8px 8px 8px 20px;
     display: block;
     text-decoration: none;
+    font-size: 1.2em;
     color: black;
     transition: 0.3s;
+}
+
+#nav-menu a:hover {
+    color: #946d8d;
+}
+
+#nav-menu i {
+    font-style: normal;
 }
 
 #nav-menu #close-nav-btn {
     position: absolute;
     top: 0;
-    margin-left: 50px;
-    font-size: 1.7em;
+    margin-left: 70px;
+    font-size: 2em;
 }
 
 .navigation-buttons {
