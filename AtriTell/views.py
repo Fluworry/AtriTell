@@ -4,12 +4,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator
 
-from .models import Note
+from .models import Post
 
 
 def index(request):
-    notes = Note.objects.all()
-    return render(request, 'homepage.html', {'posts': notes})
+    if not request.user.is_authenticated:
+        return render(request, 'register.html', {'user': request.user})
+
+    posts = Post.objects.filter(author=request.user)
+
+    return render(request, 'homepage.html', {'posts': posts})
 
 
 def account_register(request):
@@ -56,28 +60,30 @@ def account_settings(request):
     pass
 
 
-def note_create(request):
+def post_create(request):
     if not request.user.is_authenticated:
         return redirect('/auth')
 
     if request.method == 'GET':
         print(request)
-        return render(request, 'note.html', {'title': 'Title', 'body': 'My new note'})
+        return render(request, 'post.html', {'title': 'Title', 'body': 'My new post'})
     else:
-        note_title = request.POST.get('title')
-        note_text = request.POST.get('text')
-        note = Note.objects.create(title=note_title, body=note_text, author=request.user)
-        return redirect(f"/{request.user}/{str(note.random_url_id)}")
+        post_title = request.POST.get('title')
+        post_text = request.POST.get('text')
+        post = Post.objects.create(title=post_title, body=post_text, author=request.user)
+        return redirect(f"/{request.user}/{str(post.random_url_id)}")
 
 
-def note_get_or_save(request, note_url, user_name):
+def post_get_or_save(request, post_url, user_name):
     if request.method == 'GET':
-        note = get_object_or_404(Note, author=user_name, random_url_id=note_url)
-        return render(request, 'note.html', {'title': note.title, 'body': note.body})
-    elif request.user.username == user_name:
-        note_title = request.POST.get('title')
-        note_text = request.POST.get('text')
-        Note.objects.filter(author=request.user, random_url_id=note_url).update(title=note_title, body=note_text)
-        return redirect(f"/{request.user}/{note_url}")
+        post = Post.objects.get(random_url_id=post_url)
+        return render(request, 'post.html', {'title': post.title, 'body': post.body})
+
+    post = Post.objects.filter(random_url_id=post_url)
+    if request.user.id == post.get().author_id:
+        post_title = request.POST.get('title')
+        post_text = request.POST.get('text')
+        post.update(title=post_title, body=post_text)
+        return redirect(f"/{request.user}/{post_url}")
     else:
         return redirect('/')
