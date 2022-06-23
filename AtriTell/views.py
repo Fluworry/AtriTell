@@ -11,7 +11,7 @@ def index(request):
     if not request.user.is_authenticated:
         return render(request, 'register.html', {'user': request.user})
 
-    posts = Post.objects.filter(author=request.user)
+    posts = Post.objects.filter(author=request.user).order_by("-id")
 
     return render(request, 'homepage.html', {'posts': posts})
 
