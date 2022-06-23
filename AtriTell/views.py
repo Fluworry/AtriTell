@@ -2,6 +2,7 @@ from django.shortcuts import HttpResponse, get_object_or_404, render, redirect
 from django.views.decorators.http import require_GET, require_POST
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.core.paginator import Paginator
 
 from .models import Note
 

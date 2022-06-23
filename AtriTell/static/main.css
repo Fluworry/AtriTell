@@ -168,16 +168,24 @@ button {
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
 }
 
-.publications {
-    height: 300px;
-    margin-top: 150px;
+.user-content .content {
+    display: block;
+    margin-top: 80px;
+    text-align: center;
+
+    font-size: 1.5em;
 }
 
-.publications .post {
+.user-content .publications {
+    height: 300px;
+    margin-top: 100px;
+}
+
+.user-content .publications .post {
     margin-bottom: 70px;
 }
 
-.publications .post a {
+.user-content .publications .post a {
     display: block;
     margin-left: 140px;
     margin-bottom: 5px;
@@ -186,7 +194,7 @@ button {
     color: black;
 }
 
-.publications .post p {
+.user-content .publications .post .post-body {
     height: 180px;
     word-wrap: break-word;
     margin-left: 120px;
