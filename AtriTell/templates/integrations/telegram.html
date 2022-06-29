@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/account.css">
     <link rel="stylesheet" href="/static/fontawesome/css/font-awesome.min.css">
     <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico" %}">
     <title>AtriTell</title>
@@ -35,16 +36,13 @@
     </div>
 
     <div class="user-content">
-        <p class="content">My posts</p>
-        <div class="publications">
-
-            {% for post in posts %}
-                <div class="post">
-                    <a href="/{{ user }}/{{ post.random_url_id }}">{{ post.title }}</a>
-                    <p class="post-body">{{ post.body }}</p>
-                </div>
-            {% endfor %}
+        <p class="content">Connect your Telegram channel</p>
+        <div id="telegram-bot-link">
+            <a href="https://t.me/{{ bot_username }}?start={{ user.telegram_token }}">
+                t.me/{{ bot_username }}?start={{ user.telegram_token }}
+            </a>
         </div>
+        <p class="description">Follow this link and invite the Bot to your channel</p>
     </div>
 
 

@@ -16,6 +16,16 @@ def index(request):
     return render(request, 'homepage.html', {'posts': posts})
 
 
+def integrations(request, service):
+    if not request.user.is_authenticated:
+        return render(request, 'register.html', {'user': request.user})
+
+    if service == 'tg':
+        return render(request, 'integrations/telegram.html', {'bot_username': 'bot'})
+    else:
+        return redirect('/')
+
+
 def account_register(request):
     if request.method == 'GET':
         if not request.user.is_authenticated:
@@ -57,7 +67,9 @@ def account_logout(request):
 
 
 def account_settings(request):
-    pass
+    if not request.user.is_authenticated:
+        return render(request, 'register.html', {'user': request.user})
+    return render(request, 'account.html')
 
 
 def post_create(request):

@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/account.css">
     <link rel="stylesheet" href="/static/fontawesome/css/font-awesome.min.css">
     <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico" %}">
     <title>AtriTell</title>
@@ -34,21 +35,19 @@
         <a href="/post">Create post</a></i>
     </div>
 
-    <div class="user-content">
-        <p class="content">My posts</p>
-        <div class="publications">
-
-            {% for post in posts %}
-                <div class="post">
-                    <a href="/{{ user }}/{{ post.random_url_id }}">{{ post.title }}</a>
-                    <p class="post-body">{{ post.body }}</p>
-                </div>
-            {% endfor %}
-        </div>
+    <div id="integrations">
+        <p>Integrations</p>
+        <ul>
+            <li><i class="fa fa-telegram" aria-hidden="true"></i>Telegram
+                <a class="integration-toggle" href="/integrations/tg">Activate</a>
+            </li>
+            <li><i class="fa fa-comments" aria-hidden="true"></i>Matrix
+                <a class="integration-toggle" href="#">Activate</a>
+            </li>
+        </ul>
     </div>
 
-
-    <script>
+     <script>
         const openNavButton = document.querySelector('#open-nav-btn');
         const closeNavButton = document.querySelector('#close-nav-btn');
 

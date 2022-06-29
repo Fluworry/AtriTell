@@ -27,6 +27,7 @@ body {
     font-size: 1.2em;
     color: black;
     transition: 0.3s;
+    white-space: nowrap;
 }
 
 #nav-menu a:hover {
@@ -168,6 +169,13 @@ button {
     font-family: CustomSerif, Georgia, Cambria,'Times New Roman', serif;
 }
 
+.user-content .description {
+    margin-top: 10px;
+    text-align: center;
+    color: #656066;
+    font-size: 1em;
+}
+
 .user-content .content {
     display: block;
     margin-top: 80px;
@@ -197,6 +205,8 @@ button {
 .user-content .publications .post .post-body {
     height: 180px;
     word-wrap: break-word;
+    overflow: hidden;
+    white-space: pre-wrap;
     margin-left: 120px;
     margin-right: 120px;
     padding: 20px;

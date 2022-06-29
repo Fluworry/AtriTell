@@ -32,3 +32,44 @@
     background-color: #f5cfd9;
     color: #6e5e6d;
 }
+
+#integrations {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+#integrations p {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#integrations li i {
+    padding-right: 5px;
+}
+
+#telegram-bot-link, #integrations li {
+    display: block;
+    margin-top: 60px;
+    padding: 20px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5em;
+    border-color: #a4afe8;
+    font-family: monospace;
+    font-size: 1.4em;
+}
+
+#telegram-bot-link {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 35%;
+    text-align: left;
+}
+
+.integration-toggle {
+    display: block;
+    float: right;
+    color: #cc6196;
+}
