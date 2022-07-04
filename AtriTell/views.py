@@ -1,10 +1,13 @@
 from django.shortcuts import HttpResponse, get_object_or_404, render, redirect
 from django.views.decorators.http import require_GET, require_POST
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
 from django.core.paginator import Paginator
 
-from .models import Post
+from uuid import uuid4
+
+from .models import User, Post
+from .services import tg_bot
 
 
 def index(request):
@@ -21,7 +24,24 @@ def integrations(request, service):
         return render(request, 'register.html', {'user': request.user})
 
     if service == 'tg':
-        return render(request, 'integrations/telegram.html', {'bot_username': 'bot'})
+        user = User.objects.filter(id=request.user.id)
+        if user.get().tg_auth_token is None:
+            print("Generating uuid...")
+            user.update(tg_auth_token=uuid4().hex[:15])
+
+        return render(request, 'integrations/telegram.html', {'bot_username': settings.TG_BOT_USERNAME})
+    else:
+        return redirect('/')
+
+
+def web_hooks(request, service):
+    if request.method != 'POST':
+        return redirect('/')
+
+    if service == 'tg':
+        # https://api.telegram.org/bot<token>/setWebhook?url=<url>/webhooks/tg
+        tg_bot.process_auth_request(request)
+        return HttpResponse(status=200)
     else:
         return redirect('/')
 
