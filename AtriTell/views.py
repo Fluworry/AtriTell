@@ -40,7 +40,7 @@ def web_hooks(request, service):
 
     if service == 'tg':
         # https://api.telegram.org/bot<token>/setWebhook?url=<url>/webhooks/tg
-        tg_bot.process_auth_request(request)
+        tg_bot.handle_web_hook(request)
         return HttpResponse(status=200)
     else:
         return redirect('/')
